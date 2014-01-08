@@ -81,7 +81,7 @@ sub _DoExtendedMarkup
     my ($self, $text) = @_;
     my $regexp = join('|', keys %{ $self->{ handlers }});
 
-    if ($text =~ m!\A(.*?)($regexp)(<.*)\z!) {
+    if ($text =~ m!\A(.*?)($regexp)(<.*)\z!ms) {
         my $prefix = $1;
         my $code   = $2;
         my $tail   = $3;
@@ -89,7 +89,7 @@ sub _DoExtendedMarkup
         if (defined($extracted)) {
             # Need to be able to handled I<B<bob> and B<mary>>,
             # which is why we're using extract_bracketed, and recurse on the contents
-            $extracted =~ s/\A<|>\z//g;
+            $extracted =~ s/\A<|>\z//msg;
             $extracted = $self->_DoExtendedMarkup($extracted);
             my $result = $self->{handlers}->{$code}->( $extracted );
             return $prefix.$result.$self->_DoExtendedMarkup($remainder);

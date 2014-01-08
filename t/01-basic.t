@@ -39,6 +39,12 @@ my @TESTS =
         out   => qq{<p>Module <a href="https://metacpan.org/pod/Module::Path" class="module">Module::Path</a> was written by <a href="https://metacpan.org/author/NEILB" class="cpanAuthor">NEILB</a>.</p>},
     },
 
+    {
+        title => 'Multiline input',
+        in    => "Look at M<Moops>.\nIt's written by A<TOBYINK>.",
+        out   => qq{<p>Look at <a href="https://metacpan.org/pod/Moops" class="module">Moops</a>.\nIt's written by <a href="https://metacpan.org/author/TOBYINK" class="cpanAuthor">TOBYINK</a>.</p>},
+    },
+
 );
 
 foreach my $test (@TESTS) {
