@@ -45,6 +45,18 @@ my @TESTS =
         out   => qq{<p>Look at <a href="https://metacpan.org/pod/Moops" class="module">Moops</a>.\nIt's written by <a href="https://metacpan.org/author/TOBYINK" class="cpanAuthor">TOBYINK</a>.</p>},
     },
 
+    {
+        title => 'Avoid accidental formtting code sequences',
+        in    => "Try **M** and **A** for fun.",
+        out   => qq{<p>Try <strong>M</strong> and <strong>A</strong> for fun.</p>},
+    },
+
+    {
+        title => "Don't expand formatting codes in inline code",
+        in    => "The **`M<...>`** and **`A<...>`** sequences.",
+        out   => qq{<p>The <strong><code>M&lt;...&gt;</code></strong> and <strong><code>A&lt;...&gt;</code></strong> sequences.</p>},
+    },
+
 );
 
 foreach my $test (@TESTS) {

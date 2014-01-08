@@ -61,8 +61,8 @@ sub add_formatting_code
 sub _RunSpanGamut {
     my ($self, $text) = @_;
 
-    $text = $self->_DoExtendedMarkup($text);
-    return $self->SUPER::_RunSpanGamut($text);
+    $text = $self->SUPER::_RunSpanGamut($text);
+    return $self->_DoExtendedMarkup($text);
 }
 
 sub new
@@ -81,7 +81,7 @@ sub _DoExtendedMarkup
     my ($self, $text) = @_;
     my $regexp = join('|', keys %{ $self->{ handlers }});
 
-    if ($text =~ m!\A(.*?)($regexp)(<.*)\z!ms) {
+    if ($text =~ m!\A(.*?)($regexp)(<[^/].*)\z!ms) {
         my $prefix = $1;
         my $code   = $2;
         my $tail   = $3;
