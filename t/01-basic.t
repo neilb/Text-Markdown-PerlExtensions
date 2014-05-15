@@ -57,6 +57,12 @@ my @TESTS =
         out   => qq{<p>The <strong><code>M&lt;...&gt;</code></strong> and <strong><code>A&lt;...&gt;</code></strong> sequences.</p>},
     },
 
+    {
+        title => "CPAN distribution",
+        in    => "BOOK just adopted D<URI-Title>.",
+        out   => qq{<p>BOOK just adopted <a href="https://metacpan.org/release/URI-Title" class="distribution">URI-Title</a>.</p>},
+    },
+
 );
 
 foreach my $test (@TESTS) {
