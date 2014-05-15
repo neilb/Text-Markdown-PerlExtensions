@@ -12,6 +12,7 @@ my %handler =
  'M' => \&_formatting_code_module,
  'A' => \&_formatting_code_author,
  'D' => \&_formatting_code_distribution,
+ 'P' => \&_formatting_code_perlfunc,
 );
 
 sub markdown
@@ -121,6 +122,13 @@ sub _formatting_code_author
     return qq{<a href="https://metacpan.org/author/$author_id" class="cpanAuthor">$author_id</a>};
 }
 
+sub _formatting_code_perlfunc
+{
+    my $function_name = shift;
+
+    return qq{<a href="http://perldoc.perl.org/functions/$function_name.html" class="function">$function_name</a>};
+}
+
 1;
 
 =encoding utf8
@@ -133,7 +141,7 @@ Text::Markdown::PerlExtensions - markdown converter that supports perl-specific 
 
 In your markdown:
 
- Have a look at M<PerlX::Define> in D<Moops> by A<TOBYINK>.
+ You might P<use> M<PerlX::Define> in D<Moops> by A<TOBYINK>.
 
 And to convert that:
 
@@ -151,9 +159,10 @@ features:
 
 =item *
 
-Three pod-style formatting codes, used for distribution names,
-module names and PAUSE author IDs.
-These generate links to the relevant pages on L<MetaCPAN|https://metacpan.org>.
+Four pod-style formatting codes, used for distribution names,
+module names, PAUSE author IDs, and Perl's built-in functions.
+These generate links to the relevant pages on L<MetaCPAN|https://metacpan.org>
+or L<perldoc.perl.org|http://perldoc.perl.org>.
 
 =item *
 
@@ -202,6 +211,24 @@ If you write:
 This generates:
 
  <a href="https://metacpan.org/author/NEILB" class="cpanAuthor">NEILB</a>
+
+=head2 Perl built-in function
+
+To link to documentation for one of Perl's built-in functions,
+use the B<P> formatting code:
+
+ P<require>
+
+This example would produce:
+
+ <a href="http://perldoc.perl.org/functions/require.html" class="function">require</a>
+
+I really wanted to use the B<F> formatting code for this,
+but that's already taken in the L<pod spec|http://perldoc.perl.org/perlpod.html>,
+used for highlighting file names.
+
+Note: this doesn't check whether the function name given is actually a
+Perl built-in.
 
 =head2 Markdown
 

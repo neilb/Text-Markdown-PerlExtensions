@@ -63,6 +63,12 @@ my @TESTS =
         out   => qq{<p>BOOK just adopted <a href="https://metacpan.org/release/URI-Title" class="distribution">URI-Title</a>.</p>},
     },
 
+    {
+        title => "Perl built-in function",
+        in    => "Read the P<require> documentation.",
+        out   => qq{<p>Read the <a href="http://perldoc.perl.org/functions/require.html" class="function">require</a> documentation.</p>},
+    },
+
 );
 
 foreach my $test (@TESTS) {
