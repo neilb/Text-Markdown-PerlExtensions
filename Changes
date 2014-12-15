@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Markdown::PerlExtensions
 
+0.04 2014-12-15
+    - References to RT issues, in the format RT#1234, are now hyperlinked.
+
 0.03 2014-05-15
     - Added P<> for referring to one of Perl's built-in functions.
       Generates a link to perldoc.perl.org.

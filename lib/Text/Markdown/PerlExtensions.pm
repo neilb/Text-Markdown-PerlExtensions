@@ -99,6 +99,8 @@ sub _DoExtendedMarkup
         }
     }
 
+    $text =~ s!\bRT#([0-9]+)\b!<a href="https://rt.cpan.org/Public/Bug/Display.html?id=$1">RT#$1</a>!msg;
+
     return $text;
 }
 
@@ -153,7 +155,7 @@ And to convert that:
 
 Text::Markdown::PerlExtensions provides a function for converting markdown
 to HTML.
-It is a subclass of L<Text::Markdown> that provides two additional
+It is a subclass of L<Text::Markdown> that provides three additional
 features:
 
 =over 4
@@ -168,6 +170,10 @@ or L<perldoc.perl.org|http://perldoc.perl.org>.
 =item *
 
 A mechanism for adding further pod-style formatting codes.
+
+=item *
+
+References to RT issues in the format RT#1234 will be hyperlinked to the issue on RT.
 
 =back
 
