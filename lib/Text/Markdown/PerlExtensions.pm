@@ -100,6 +100,7 @@ sub _DoExtendedMarkup
     }
 
     $text =~ s!\bRT#([0-9]+)\b!<a href="https://rt.cpan.org/Public/Bug/Display.html?id=$1">RT#$1</a>!msg;
+    $text =~ s!\bPRT#([0-9]+)\b!<a href="https://rt.perl.org/Public/Bug/Display.html?id=$1">Perl#$1</a>!msg;
 
     return $text;
 }

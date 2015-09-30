@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Markdown::PerlExtensions
 
+0.05 2015-09-30 NEILB
+    - References to Perl RT issues, in the format PRT#1234, are now hyperlinked.
+
 0.04 2014-12-15
     - References to RT issues, in the format RT#1234, are now hyperlinked.
 
