@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Markdown::PerlExtensions
 
+0.06 2015-11-07 NEILB
+    - Changed github repo URL after changing my github username
+
 0.05 2015-09-30 NEILB
     - References to Perl RT issues, in the format PRT#1234, are now hyperlinked.
 

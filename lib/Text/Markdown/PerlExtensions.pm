@@ -285,7 +285,7 @@ for markdown syntax.
 
 =head1 REPOSITORY
 
-L<https://github.com/neilbowers/Text-Markdown-PerlExtensions>
+L<https://github.com/neilb/Text-Markdown-PerlExtensions>
 
 =head1 AUTHOR
 
